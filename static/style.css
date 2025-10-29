@@ -1,0 +1,289 @@
+/* --- Basic Reset & Font --- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    /* "Luxurious" Color Palette */
+    --color-primary: #4A55A2; /* A deep, rich blue/purple */
+    --color-primary-dark: #3A437E;
+    --color-secondary: #7895CB; /* A softer accent blue */
+    --color-tertiary: #A0BFE0;
+    --color-light-bg: #F8F9FA; /* Off-white background */
+    --color-white: #FFFFFF;
+    --color-text: #212529; /* Dark, readable text */
+    --color-text-light: #6C757D;
+    --color-border: #E0E0E0;
+    --color-shadow: rgba(74, 85, 162, 0.1);
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-light-bg);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+}
+
+/* --- Main Container --- */
+.main-content {
+    width: 100%;
+    max-width: 800px;
+}
+
+.randomizer-container {
+    background-color: var(--color-white);
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px var(--color-shadow), 0 4px 12px var(--color-shadow);
+    border: 1px solid var(--color-border);
+}
+
+/* --- Header --- */
+.tool-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-primary);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: 1rem;
+}
+
+.tool-header h1 {
+    font-size: 1.75rem;
+    font-weight: 700;
+}
+
+/* --- Text Input --- */
+.list-input {
+    width: 100%;
+    min-height: 200px;
+    padding: 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    resize: vertical;
+    margin-bottom: 1.5rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.list-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(74, 85, 162, 0.25);
+}
+
+/* --- Stats Grid --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.stat-item {
+    background-color: var(--color-light-bg);
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid var(--color-border);
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--color-text-light);
+    margin-bottom: 0.25rem;
+}
+
+.stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+/* --- Options & Forms --- */
+.options-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+}
+
+.dropdown,
+.input-field {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 1rem;
+    background-color: var(--color-white);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dropdown:focus,
+.input-field:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(74, 85, 162, 0.25);
+}
+
+.dropdown {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 1em;
+    cursor: pointer;
+}
+
+.input-group small {
+    font-size: 0.8rem;
+    color: var(--color-text-light);
+    margin-top: 0.25rem;
+}
+
+/* --- Action Buttons --- */
+.actions-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    border-top: 1px solid var(--color-border);
+    padding-top: 1.5rem;
+}
+
+.btn {
+    padding: 0.75rem 1.25rem;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--color-shadow);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: white;
+}
+.btn-primary:hover {
+    background-color: var(--color-primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--color-secondary);
+    color: white;
+}
+.btn-secondary:hover {
+    background-color: #6A86B9;
+}
+
+.btn-tertiary {
+    background-color: var(--color-light-bg);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-border);
+}
+.btn-tertiary:hover {
+    background-color: #F1F3F5;
+    color: var(--color-text);
+}
+
+/* Push Reset button to the left */
+.actions-row #reset-btn {
+    margin-right: auto;
+}
+
+/* --- Results Output --- */
+.randomized-output {
+    background-color: var(--color-light-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    min-height: 150px;
+    padding: 1rem;
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    overflow-wrap: break-word;
+    white-space: pre-wrap; /* Preserves new lines */
+}
+
+/* --- Utility --- */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 600px) {
+    .randomizer-container {
+        padding: 1.5rem;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .options-row {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .actions-row {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+    .actions-row .btn {
+        width: 100%;
+    }
+    .actions-row #reset-btn {
+        margin-right: 0; /* Stack normally on mobile */
+    }
+}

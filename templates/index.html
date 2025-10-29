@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List Randomizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="main-content">
+        <div class="randomizer-container">
+            
+            <div class="tool-header">
+                <h1>List Randomizer</h1>
+            </div>
+
+            <label for="list-input" class="sr-only">Enter Your List</label>
+            <textarea id="list-input" class="list-input" placeholder="Paste or type your list here..."></textarea>
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Total Count</span>
+                    <span id="total-count" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Unique Count</span>
+                    <span id="unique-count" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Duplicate Count</span>
+                    <span id="duplicate-count" class="stat-value">0</span>
+                </div>
+            </div>
+
+            <div class="options-row">
+                <div class="input-group">
+                    <label for="list-format" class="input-label">List Delimiter</label>
+                    <select id="list-format" class="dropdown">
+                        <option value="\n" selected>One per line (Newline)</option>
+                        <option value=",">Comma (,)</option>
+                        <option value=";">Semicolon (;)
+                        <option value=" ">Space</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="number-of-selections" class="input-label">Number of Selections</label>
+                    <input type="number" id="number-of-selections" class="input-field" value="0" min="0">
+                    <small>Set to 0 to return all items.</small>
+                </div>
+            </div>
+
+            <div class="actions-row">
+                <button id="remove-duplicates-btn" class="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.67 1.9L19 3.67M19 3.67l-12.8 12.8A2.43 2.43 0 0 0 4 19.17a2.43 2.43 0 0 0 2.83 2.83c.77-.02 1.52-.3 2.07-.85L22.1 6.9"/><path d="M5.4 11.1 2.9 8.6A2.12 2.12 0 0 0 2 7.14a2.12 2.12 0 0 0-.86-1.52c-.73-.73-.73-1.9 0-2.63L7.7 2.3c.73-.73 1.9-.73 2.63 0 .33.33.56.76.66 1.2A2.43 2.43 0 0 1 12.83 4L15 6.17a2.43 2.43 0 0 1-.85 2.07l-3.3 3.3Z"/></svg>
+                    Remove Duplicates
+                </button>
+                <button id="reset-btn" class="btn btn-tertiary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9Z"/><path d="M12 3v9h9"/></svg>
+                    Reset
+                </button>
+                <button id="randomize-btn" class="btn btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16H2"/><path d="M10 20v-4"/><path d="M10 4v4"/><path d="M17 4h5"/><path d="M2 20h5"/><path d="m3 11 7-7 7 7"/><path d="m17 13 4 4 4-4"/></svg>
+                    Randomize
+                </button>
+            </div>
+
+            <label for="randomized-list" class="input-label">Results</label>
+            <div id="randomized-list" class="randomized-output"></div>
+
+        </div>
+    </main>
+    
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
