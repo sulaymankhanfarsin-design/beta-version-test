@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All-in-One File Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 My All-in-One Converter</h1>
+        <p>Fast, smooth, and flexible file conversions.</p>
+
+        <form action="/convert" method="POST" enctype="multipart/form-data">
+            
+            <label for="file">1. Upload your file(s):</label>
+            <input type="file" id="file" name="file" required multiple>
+
+            <label for="conversion_type">2. Choose conversion:</label>
+            <select id="conversion_type" name="conversion_type">
+                <option value="jpg_to_pdf">JPGs to PDF (Multiple)</option>
+                <option value="pdf_to_jpg">PDF to JPGs</option>
+            </select>
+
+            <button type="submit">Convert Now</button>
+        </form>
+    </div>
+</body>
+</html>
