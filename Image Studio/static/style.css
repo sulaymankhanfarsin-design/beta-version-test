@@ -1,0 +1,85 @@
+:root {
+  --bg: linear-gradient(145deg,#f7f8fc,#eef2ff);
+  --card:#ffffffcc;
+  --accent:#5a45ff;
+  --text:#0f172a;
+}
+body {
+  font-family: "Poppins",sans-serif;
+  margin:0; padding:0;
+  background: var(--bg);
+  color: var(--text);
+  min-height:100vh;
+}
+.header {
+  text-align:center;
+  padding:2rem;
+  backdrop-filter:blur(10px);
+}
+h1 { font-size:2rem; color:var(--accent); margin-bottom:0.5rem;}
+.card {
+  background:var(--card);
+  max-width:900px;
+  margin:1rem auto;
+  padding:1.5rem;
+  border-radius:1.5rem;
+  box-shadow:0 8px 32px rgba(31,38,135,.15);
+}
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:1rem;
+}
+label {display:block; margin:0.5rem 0;}
+input,select,button {
+  width:100%; padding:0.5rem; border:1px solid #ccc; border-radius:8px;
+}
+button.btn {
+  background:var(--accent); color:#fff; border:none; cursor:pointer;
+  font-size:1.1rem; padding:0.8rem; border-radius:12px;
+  transition:transform .15s, box-shadow .15s;
+}
+button.btn:hover { transform:translateY(-2px); box-shadow:0 8px 20px rgba(90,69,255,0.3); }
+.flash-box {list-style:none; max-width:600px; margin:1rem auto; padding:0;}
+.flash-box li {padding:0.5rem 1rem; border-radius:10px; margin:0.3rem 0; text-align:center;}
+.flash-box .success{background:#e6fbe7;border:1px solid #9ee19a;}
+.flash-box .error{background:#ffe5e5;border:1px solid #ff9999;}
+footer{text-align:center;margin:1rem;color:#555;}
+/* --- Custom File Upload Style --- */
+.upload-box {
+  margin-bottom: 1rem;
+}
+
+input[type="file"] {
+  display: none; /* hide the ugly default button */
+}
+
+.custom-file-label {
+  background: #ff7a00;
+  color: #fff;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-block;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 4px 10px rgba(255, 122, 0, 0.25);
+}
+
+.custom-file-label:hover {
+  background: #ff9533;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(255, 122, 0, 0.35);
+}
+
+.custom-file-label:active {
+  background: #e66a00;
+  transform: translateY(1px);
+}
+
+#file-name,
+#watermark-name {
+  margin-left: 10px;
+  color: #444;
+  font-size: 0.9rem;
+}
